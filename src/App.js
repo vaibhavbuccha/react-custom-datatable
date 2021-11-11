@@ -1,9 +1,9 @@
-import User from "./components/User";
+import AddStudent from "./components/AddStudent";
 
 function App() {
   return (
     <div>
-      <User />
+      <AddStudent />
     </div>
   );
 }

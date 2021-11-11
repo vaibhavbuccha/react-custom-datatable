@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import ViewStudent from "./ViewStudent";
 // eslint-disable-next-line
 export default ({ data }) => {
   useEffect(() => {
@@ -9,10 +10,7 @@ export default ({ data }) => {
       <h3>Students List</h3>
       {data.map((d, i) => (
         <div key={i}>
-          <hr />
-          <p>Name: {d.name}</p>
-          <p>Roll No: {d.rollno}</p>
-          <p>Std : {d.std}</p>
+          <ViewStudent name={d.name} rollno={d.rollno} std={d.std} />
         </div>
       ))}
     </>

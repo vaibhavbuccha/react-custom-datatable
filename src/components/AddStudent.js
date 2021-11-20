@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CounterContext } from "../context/CounterContext";
 import StudentList from "./StudentList";
 
 // eslint-disable-next-line
 export default () => {
   const [students, setStudents] = useState([]);
+  const counter = useContext(CounterContext);
   const studentDetails = {
     name: "",
     rollno: "",
@@ -25,6 +27,7 @@ export default () => {
     if (Object.keys(errors).length === 0 && isSubmit) {
       console.log(studentData);
       setStudents([...students, studentData]);
+      counter.add(studentData);
       setSuccess(true);
       setTimeout(() => setSuccess(false), 5000);
     }
@@ -69,6 +72,7 @@ export default () => {
 
   return (
     <>
+      {JSON.stringify(counter.state)}
       <h2>Student Add</h2>
       {success ? "Student Added Successfully" : ""}
       <section onSubmit={submitHandler}>

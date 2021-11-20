@@ -1,10 +1,11 @@
 import AddStudent from "./components/AddStudent";
+import CounterState from "./context/CounterState";
 
 function App() {
   return (
-    <div>
+    <CounterState>
       <AddStudent />
-    </div>
+    </CounterState>
   );
 }
 
